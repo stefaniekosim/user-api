@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user=require('../Models/user');
+var user=require('../models/user');
 const uuidv4 = require('uuid/v4');
 var ValidateToken = require('./ValidateToken');
 var usr;
@@ -69,6 +69,7 @@ router.post('/findUserByAccAndIdNo',ValidateToken,function(req,res,next){
     });    
 });
 router.post('/addUser',ValidateToken,function(req,res,next){
+    console.log('test');
     setUser(req);
     usr.id= uuidv4() ;
     var cnt=1;

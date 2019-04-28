@@ -8,7 +8,7 @@ function validateToken(req, res,next) {
       }
 
     request( {
-        url: 'http://localhost:14101/api/auth/validate',
+        url: 'http://token-api-stefanie:14101/api/auth/validate',
         method: 'GET',
         headers : { "x-access-token" : token }
     },
@@ -18,6 +18,7 @@ function validateToken(req, res,next) {
         }else{
             response = JSON.parse(body);
             res.send(response);
+
         }
     });
 };

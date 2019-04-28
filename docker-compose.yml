@@ -1,0 +1,25 @@
+version: "3.5"
+networks:
+  mynetwork:
+    external:
+      name: token-api-stefanie_mynetwork
+services:
+  app:
+    container_name: user-api-stefanie
+    restart: always
+    build: .
+    ports:
+      - "14102:14102"
+    volumes:
+      - .:/app
+    links:
+      - mongo
+    networks:
+      - mynetwork
+  mongo:
+    container_name: stefanie-user-mongo
+    image: mongo
+    ports:
+      - "27018:27018"
+    networks:
+      - mynetwork
